@@ -121,7 +121,11 @@ This project is open-source. Feel free to modify and distribute.
 
 ## Observations
 
-I used Python to generate prime numbers efficiently using the Sieve of Eratosthenes and analyzed patterns such as prime gaps and prime density. By visualizing these properties, I observed that while primes become less frequent as numbers grow, small gaps remain common and larger gaps appear sporadically. The prime density closely follows the 1/ln(n) approximation from the Prime Number Theorem, demonstrating how computation can be used to explore deep mathematical patterns.
+I used Python to generate prime numbers efficiently using the Sieve of Eratosthenes and analyzed patterns such as prime gaps and prime density. 
+
+- Prime gaps generally increase as numbers grow larger, though small gaps persist unpredictably
+- The empirical density of primes closely follows the theoretical 1 / ln(n) approximation
+- Log-scaled plots reveal the slow decay of prime density across increasing ranges
 
 ## Future work
 The problem with the Eratosthenes sieve algorithm is that it consumes memory that is proportional to the number of prime numbers

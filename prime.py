@@ -5,7 +5,7 @@ import math
 This module analyzes prime numbers up to a specified limit, computes the gaps between consecutive primes,
 and visualizes both the gaps and the histogram of these gaps.
 '''
-class PrimePatterns(object):
+class PrimePatterns:
     def __init__(self, num_primes = 1000000):
         
         self.prime_numbers = []
@@ -60,7 +60,7 @@ the computation and memory load. Extending it to handle higher numbers would req
 that can be more memory efficient.
 '''
 
-class PrimeDensityExperiments(object):
+class PrimeDensityExperiments:
     def __init__(self):
         self.densities = []
         self.num_primes_list = [1000, 10000, 100000, 1000000]
@@ -74,8 +74,8 @@ class PrimeDensityExperiments(object):
             self.densities.append(density)
     
     def plot_prime_densities(self):
-        plt.plot(self.num_primes_list, self.densities, marker='o', linestyle='-', markersize=3)
-        plt.plot(self.num_primes_list, self.natural_logs, marker='o', linestyle='-', markersize=3)
+        plt.plot(self.num_primes_list, self.densities, linestyle='-', marker='*', markersize=3)
+        plt.plot(self.num_primes_list, self.natural_logs, linestyle='-', marker='*', markersize=3)
         plt.ticklabel_format(style='plain', axis='x')
         plt.xscale('log')
         plt.legend(['Actual Prime Density', '1 / ln(n) Approximation'])
