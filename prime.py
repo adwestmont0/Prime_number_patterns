@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import math
 
 class PrimePatterns(object):
     def __init__(self, num_primes = 1000000):
@@ -48,6 +49,7 @@ class PrimeDensityExperiments(object):
     def __init__(self):
         self.densities = []
         self.num_primes_list = [1000, 10000, 100000, 1000000, 10000000, 100000000]
+        self.natural_logs = [1 / math.log(n) for n in self.num_primes_list]
 
     def run(self):
         
@@ -60,14 +62,16 @@ class PrimeDensityExperiments(object):
     
     def plot(self):
         plt.plot(self.num_primes_list, self.densities, marker='o', linestyle='-', markersize=3)
+        plt.plot(self.num_primes_list, self.natural_logs, marker='o', linestyle='-', markersize=3)
         plt.ticklabel_format(style='plain', axis='x')
-        plt.title('Prime Number density')
+        plt.legend(['Actual Prime Density', '1 / ln(n) Approximation'])
+        plt.title('Prime Number Density vs Natural Log Approximation')          
         plt.xlabel('Range of Numbers')
         plt.ylabel('Density of prime numbers in that range')
         plt.show()
-        plt.savefig('prime_density.png', dpi=300)
+        plt.savefig('prime_density vs natural_log.png', dpi=300)
         plt.close()
-
+    
 def main():
     a = PrimePatterns()
     a.run()
