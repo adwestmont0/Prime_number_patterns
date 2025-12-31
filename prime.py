@@ -28,13 +28,11 @@ class PrimePatterns(object):
                 self.prime_numbers.append(num)
                 if prev_prime is not None:
                     self.gaps.append(num - prev_prime)
-                else:
-                    self.gaps.append(0)  # No gap for the first prime
                 prev_prime = num
 
 
     def plot_prime_gaps(self):
-        plt.plot(self.prime_numbers, self.gaps, marker='o', linestyle='-', markersize=3)
+        plt.plot(self.prime_numbers[1:], self.gaps, marker='o', linestyle='-', markersize=3)
         plt.title('Prime Numbers and Their Gaps')
         plt.xlabel('Prime Numbers')
         plt.ticklabel_format(style='plain', axis='x')
