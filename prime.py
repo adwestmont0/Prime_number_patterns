@@ -15,7 +15,7 @@ class PrimePatterns:
         self.is_prime[0] = self.is_prime[1] = False
 
 
-    def compute_prime_gaps(self):
+    def compute_prime_gaps(self, log_mean_max = False):
         # This is a simple Sieve of Eratosthenes implementation to find all prime numbers up to self.num_primes
         for i in range(2, int(self.num_primes**0.5) + 1):
             if self.is_prime[i]:
@@ -29,7 +29,10 @@ class PrimePatterns:
                 if prev_prime is not None:
                     self.gaps.append(num - prev_prime)
                 prev_prime = num
-
+        if log_mean_max:
+            print((f"Total primes found: {len(self.prime_numbers)} in range up to {self.num_primes}"))
+            print(f"Mean prime gap: {sum(self.gaps)/len(self.gaps):.2f}")
+            print(f"Max prime gap: {max(self.gaps)}")
 
     def plot_prime_gaps(self):
         plt.plot(self.prime_numbers[1:], self.gaps, marker='o', linestyle='-', markersize=3)
@@ -88,7 +91,7 @@ class PrimeDensityExperiments:
     
 def main():
     a = PrimePatterns()
-    a.compute_prime_gaps()
+    a.compute_prime_gaps(True)
     a.plot_prime_gaps()
     b = PrimeDensityExperiments()
     b.compute_prime_densities()
