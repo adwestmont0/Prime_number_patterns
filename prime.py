@@ -44,11 +44,37 @@ class PrimePatterns(object):
         plt.savefig('prime_gaps_histogram.png', dpi=300)
         plt.close()
 
+class PrimeDensityExperiments(object):
+    def __init__(self):
+        self.densities = []
+        self.num_primes_list = [1000, 10000, 100000, 1000000, 10000000, 100000000]
+
+    def run(self):
+        
+        densities = []
+        for num_primes in self.num_primes_list:
+            a = PrimePatterns(num_primes)
+            a.run()
+            density = len(a.prime_numbers) / num_primes
+            self.densities.append(density)
+    
+    def plot(self):
+        plt.plot(self.num_primes_list, self.densities, marker='o', linestyle='-', markersize=3)
+        plt.ticklabel_format(style='plain', axis='x')
+        plt.title('Prime Number density')
+        plt.xlabel('Range of Numbers')
+        plt.ylabel('Density of prime numbers in that range')
+        plt.show()
+        plt.savefig('prime_density.png', dpi=300)
+        plt.close()
 
 def main():
     a = PrimePatterns()
     a.run()
     a.plot()
+    b = PrimeDensityExperiments()
+    b.run()
+    b.plot()
 
 if __name__ == "__main__":
     main()

@@ -84,6 +84,10 @@ The saved `prime_gaps.png` is a high-resolution (300 DPI image)
 
 This project is open-source. Feel free to modify and distribute.
 
+## Observations
+
+I used Python to generate prime numbers efficiently using the Sieve of Eratosthenes and analyzed patterns such as prime gaps and prime density. By visualizing these properties, I observed that while primes become less frequent as numbers grow, small gaps remain common and larger gaps appear sporadically. This project demonstrated how computation can be used to explore deep mathematical patterns.
+
 ## Future work
 The problem with the Eratosthenes sieve algorithm is that it consumes memory that is proportional to the number of prime numbers
 that we want to generate. We can do something better by segmenting the range into smaller chunks so that we can constrain the amount
