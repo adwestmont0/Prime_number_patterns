@@ -31,6 +31,7 @@ class PrimePatterns(object):
         plt.plot(self.prime_numbers, self.gaps, marker='o', linestyle='-', markersize=3)
         plt.title('Prime Numbers and Their Gaps')
         plt.xlabel('Prime Numbers')
+        plt.ticklabel_format(style='plain', axis='x')
         plt.ylabel('Gaps Between Consecutive Primes')
         plt.grid(True)
         plt.show()
